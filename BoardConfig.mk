@@ -26,7 +26,8 @@ TARGET_NO_BOOTLOADER := true
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=hammerhead user_debug=31 maxcpus=2 msm_watchdog_v2.enable=1 androidboot.bootdevice=msm_sdcc.1
+#BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=hammerhead user_debug=31 maxcpus=2 msm_watchdog_v2.enable=1 androidboot.bootdevice=msm_sdcc.1
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=hammerhead user_debug=31 maxcpus=2 msm_watchdog_v2.enable=1 androidboot.bootdevice=msm_sdcc.1 max_oc0=2956800 max_oc1=2956800 max_oc2=2956800 max_oc3=2956800 vdd_uv=0 l2_opt=1
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02900000 --tags_offset 0x02700000
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 
@@ -109,8 +110,15 @@ BOARD_SEPOLICY_DIRS += \
        device/lge/hammerhead/sepolicy
 
 # Define kernel config for inline building
-TARGET_KERNEL_CONFIG := slim_hammerhead_defconfig
+TARGET_KERNEL_CONFIG := wicked_hammerhead_defconfig
 TARGET_KERNEL_SOURCE := kernel/lge/hammerhead
+
+# ROM toolchain
+TARGET_GCC_VERSION := 4.9
+
+# Custom kernel toolchain
+KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
+KERNEL_TOOLCHAIN := "$(ANDROID_BUILD_TOP)/prebuilt/$(HOST_OS)-x86_64/toolchain/Linaro-4.9/bin/"
 
 # The list below is order dependent
 BOARD_SEPOLICY_UNION += \
