@@ -114,7 +114,7 @@ TARGET_KERNEL_CONFIG := wicked_hammerhead_defconfig
 TARGET_KERNEL_SOURCE := kernel/lge/hammerhead
 
 # Build with Oracle Java.  OpenJDK is crash-o-matic under heavy loading
-ORACLE_JDK7 := true
+BUILD_ORACLE_JDK7 := true
 
 # ROM toolchain
 TARGET_GCC_VERSION := 4.9
