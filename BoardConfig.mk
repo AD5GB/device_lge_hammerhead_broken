@@ -114,7 +114,7 @@ TARGET_KERNEL_CONFIG := wicked_hammerhead_defconfig
 TARGET_KERNEL_SOURCE := kernel/lge/hammerhead
 
 # Build with Oracle Java.  OpenJDK is crash-o-matic under heavy loading
-BUILD_ORACLE_JDK7 := true
+#BUILD_ORACLE_JDK7 := true
 
 # ROM toolchain
 TARGET_GCC_VERSION := 4.9
@@ -180,6 +180,9 @@ USE_DEVICE_SPECIFIC_CAMERA:= true
 RECOVERY_FSTAB_VERSION := 2
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
+
+# Hardware
+BOARD_HARDWARE_CLASS := device/lge/hammerhead/cmhw
 
 -include vendor/lge/hammerhead/BoardConfigVendor.mk
 
