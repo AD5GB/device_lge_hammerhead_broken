@@ -123,6 +123,12 @@ TARGET_GCC_VERSION := 4.9
 KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 KERNEL_TOOLCHAIN := "$(ANDROID_BUILD_TOP)/prebuilt/$(HOST_OS)-x86_64/toolchain/Linaro-4.9/bin/"
 
+# Build with compressed odex! (thanks Ken!!)
+WITH_DEXPREOPT_COMP=true
+
+# Keepin it block based for the sake of SuperSu
+BLOCK_BASED_OTA=true
+
 # The list below is order dependent
 BOARD_SEPOLICY_UNION += \
        app.te \
